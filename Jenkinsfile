@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Installing dependencies..."
                 script {
-                    docker.image('python:3.9-slim-buster').inside {
+                    docker.image('python:3.9-slim-buster').inside('-u root') {
                         sh 'pip install -r requirements.txt'
                     }
                 }
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo "Running unit tests..."
                 script {
-                    docker.image('python:3.9-slim-buster').inside {
+                    docker.image('python:3.9-slim-buster').inside('-u root')  {
                         sh 'pip install -r requirements.txt'
                         sh 'python3 -m unittest test_app.py'
                     }
