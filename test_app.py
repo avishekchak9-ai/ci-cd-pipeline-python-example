@@ -11,6 +11,7 @@ class BasicTests(unittest.TestCase):
         self.assertIn(b'Hello from Python CI/CD Pipeline', response.data)
     def test_main_page_version(self):
         response = self.app.get('/')
-        self.assertIn(b'v1.0', response.data)
+        self.assertIn(b'v1.1', response.data)
 if __name__ == '__main__':
     unittest.main()
+    
